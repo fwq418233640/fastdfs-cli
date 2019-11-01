@@ -1,5 +1,6 @@
 package com.ch.fastdfsapi;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -17,6 +18,7 @@ import java.io.File;
 @EnableScheduling
 @SpringBootApplication
 @EnableSwagger2
+@Slf4j
 public class Run extends SpringBootServletInitializer {
 
     private static final Logger log = LoggerFactory.getLogger(Run.class);
@@ -25,9 +27,9 @@ public class Run extends SpringBootServletInitializer {
         ConfigurableApplicationContext run = SpringApplication.run(Run.class, args);
         ConfigurableEnvironment environment = run.getEnvironment();
         String file_path = environment.getProperty("file_path");
-        System.out.println("============= TRACKER SERVER ADDR : "
-                + environment.getProperty("com.ikingtech.fastdfs-client.tracker_server")
-                + " =============");
+        log.info("============= TRACKER SERVER ADDR : {} {}"
+                , environment.getProperty("com.ikingtech.fastdfs-client.tracker_server")
+                , " =============");
 
         if (StringUtils.isEmpty(file_path)) {
             file_path = System.getProperty("java.io.tmpdir");

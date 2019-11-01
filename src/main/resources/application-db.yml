@@ -1,0 +1,8 @@
+spring:
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:hsqldb:file:data/data.db;shutdown=true;

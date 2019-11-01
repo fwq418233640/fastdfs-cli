@@ -1,0 +1,37 @@
+server:
+  port: ${SERVER_PORT:8240}
+  tomcat:
+    max-threads: 100
+    uri-encoding: UTF-8
+  max-http-header-size: 812900
+spring:
+  profiles:
+    active: db,${ENV:dev}
+  http:
+    multipart:
+      location: /
+      max-file-size: 100MB
+      max-request-size: 100MB
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+com:
+  ikingtech:
+    fastdfs-client:
+      admin:
+        username: ${USER_NAME:admin}
+        password: ${PASS_WORD:admin}
+        emilbox: ${EMILBOX:418233640@qq.com}
+      connect_timeout: 30000
+      network_timeout: 30000
+      charset: UTF-8
+      tracker_port: 22122
+      http:
+        secret_key: FastDFS1234567890
+        tracker_http_port: 80
+        anti_steal_token: no
+      tracker_server: ${TRACKER_ADDR}
+      storage_server:
+
+file_path: ${FILE_PATH}
+

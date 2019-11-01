@@ -9,7 +9,7 @@ java -jar -D${TRACKER_ADDR} fastdfs-cli-1.0.jar
 ```
 
 # 参数配置
-```
+``` 
 # 服务器端口
 SERVER_PORT
 
